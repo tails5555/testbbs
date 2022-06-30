@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="io.btsoft.bbs.mapper.DepartmentMapper">
+    <select id="findAll" resultType="Department">
+        SELECT * FROM _department
+    </select>
+
+    <select id="findOne" parameterType="long" resultType="Department">
+        SELECT * FROM _department WHERE id = #{id}
+    </select>
+
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO _department (name, telno, createdAt)
+        VALUES (#{name}, #{telno}, CURRENT_TIMESTAMP())
+    </insert>
+
+    <update id="update">
+        UPDATE _department SET
+            name = #{name},
+            telno = #{telno},
+            lastModifiedAt = CURRENT_TIMESTAMP()
+        WHERE id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="long">
+        DELETE FROM _department WHERE id = #{id}
+    </delete>
+</mapper>
