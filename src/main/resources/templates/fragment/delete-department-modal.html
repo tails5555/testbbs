@@ -1,0 +1,21 @@
+<!-- Delete Modal HTML -->
+<div id="deleteDepartmentModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form th:action="delete" method="post">
+                <input type="hidden" id="del-id" name="id" />
+                <div class="modal-header">
+                    <h4 class="modal-title">부서 삭제</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>선택하신 부서를 삭제하겠습니까?</p>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" class="btn btn-default" data-dismiss="modal" value="취소">
+                    <input type="submit" class="btn btn-danger" value="확인">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

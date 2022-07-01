@@ -19,6 +19,16 @@ spring:
       mode: always
       data-locations: classpath:sql/import.sql
 
+  # Thymeleaf
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
+
+  # Resource Config
+  web:
+    resources:
+      static-locations: classpath:/static/
+
 # MyBatis
 mybatis:
   config-location: classpath:mybatis-config.xml

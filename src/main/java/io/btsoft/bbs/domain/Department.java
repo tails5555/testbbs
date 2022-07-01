@@ -1,14 +1,12 @@
 package io.btsoft.bbs.domain;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@Builder
 @ToString
 @EqualsAndHashCode
 public class Department {

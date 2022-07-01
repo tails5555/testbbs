@@ -1,3 +1,8 @@
+/**
+ * IF EXISTS 는 일부 존재하지 않는 DB Engine 도 있을 수 있다. 참조할 것. (오라클 계열은 대부분 지원하는 듯? 하다.)
+ */
+
+DROP TABLE IF EXISTS _employee;
 DROP TABLE IF EXISTS _department;
 
 CREATE TABLE _department (
@@ -13,11 +18,6 @@ INSERT INTO _department (name, telno, createdAt) VALUES ('경영부', '021234222
 INSERT INTO _department (name, telno, createdAt) VALUES ('개발부', '0212343333', CURRENT_TIMESTAMP());
 INSERT INTO _department (name, telno, createdAt) VALUES ('마케팅부', '0212344444', CURRENT_TIMESTAMP());
 INSERT INTO _department (name, telno, createdAt) VALUES ('회계부', '0212345555', CURRENT_TIMESTAMP());
-
-/**
- * IF EXISTS 는 일부 존재하지 않는 DB Engine 도 있을 수 있다. 참조할 것. (오라클 계열은 대부분 지원하는 듯? 하다.)
- */
-DROP TABLE IF EXISTS _employee;
 
 /**
  * ON DELETE CASCADE, ON DELETE SET NULL 의 차이를 알아둘 것.

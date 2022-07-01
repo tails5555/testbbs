@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout/page-layout">
+
+<th:block layout:fragment="content-body-fragment">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <h2>부서 목록</h2>
+                    </div>
+                    <div class="col-sm-6">
+                        <a href="#addDepartmentModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>부서 추가</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <table class="table table-striped table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>부서 이름</th>
+                        <th>부서 연락처</th>
+                        <th>부서 생성일</th>
+                        <th>부서 수정일</th>
+                        <th>수정 / 삭제</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="department: ${departments}">
+                        <td th:text="${department.id}"></td>
+                        <td th:text="${department.name}"></td>
+                        <td th:text="${department.telno}"></td>
+                        <td th:text="${department.createdAt}"></td>
+                        <td th:text="${department.lastModifiedAt}"></td>
+                        <td>
+                            <a th:id=|dep-edit-${department.id}| href="#editDepartmentModal" class="edit" data-toggle="modal" th:data-id="${department.id}" th:data-name="${department.name}" th:data-telno="${department.telno}">
+                                <i class="material-icons" data-toggle="tooltip" title="수정" th:attr="onclick=|onClickUpdate(${department.id})|">&#xE254;</i>
+                            </a>
+                            <a href="#deleteDepartmentModal" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="삭제" th:attr="onclick=|onClickDelete(${department.id})|">&#xE872;</i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="clearfix">
+                <div class="hint-text">Showing <b>5</b> out of <b>25</b> entries</div>
+                <ul class="pagination">
+                    <li class="page-item disabled"><a href="#">Previous</a></li>
+                    <li class="page-item"><a href="#" class="page-link">1</a></li>
+                    <li class="page-item"><a href="#" class="page-link">2</a></li>
+                    <li class="page-item active"><a href="#" class="page-link">3</a></li>
+                    <li class="page-item"><a href="#" class="page-link">4</a></li>
+                    <li class="page-item"><a href="#" class="page-link">5</a></li>
+                    <li class="page-item"><a href="#" class="page-link">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</th:block>
+</html>
+
+<!-- 참조: https://www.tutorialrepublic.com/snippets/bootstrap/crud-data-table-for-database-with-modal-form.php -->
